@@ -8,7 +8,7 @@ module SidekiqUniqueJobs
 
           klass = worker_class_constantize(worker_class)
 
-          enabled = klass.get_sidekiq_options['unique'] || item['unique']
+          enabled = SidekiqUniqueJobs::Config.enabled && (klass.get_sidekiq_options['unique'] || item['unique'])
           unique_job_expiration = klass.get_sidekiq_options['unique_job_expiration']
 
           if enabled

@@ -1,5 +1,16 @@
 module SidekiqUniqueJobs
   class Config
+
+    def self.enabled=(enabled)
+      @enabled = enabled
+    end
+
+    def self.enabled
+      @enabled
+    end
+
+    self.enabled = true
+
     def self.unique_prefix=(prefix)
       @unique_prefix = prefix
     end
