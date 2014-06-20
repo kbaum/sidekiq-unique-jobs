@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Mikael Henriksson"]
   gem.email         = ["mikael@zoolutions.se"]
   gem.description   = gem.summary = "The unique jobs that were removed from sidekiq"
-  gem.homepage      = "http://mperham.github.com/sidekiq"
+  gem.homepage      = "https://github.com/mhenrixon/sidekiq-unique-jobs"
   gem.license       = "LGPL-3.0"
 
   # gem.executables   = ['']
@@ -14,11 +14,11 @@ Gem::Specification.new do |gem|
   gem.name          = "sidekiq-unique-jobs"
   gem.require_paths = ["lib"]
   gem.version       = SidekiqUniqueJobs::VERSION
-  gem.add_dependency                  'sidekiq', '~> 2.6'
-  gem.add_development_dependency      'minitest', '~> 3'
-  gem.add_development_dependency      'sinatra'
-  gem.add_development_dependency      'slim'
-  gem.add_development_dependency      'rake'
-  gem.add_development_dependency      'activesupport', '~> 3'
-  gem.add_development_dependency      'simplecov'
+  gem.add_dependency             'sidekiq', '>= 2.6'
+  gem.add_dependency             'mock_redis'
+  gem.add_development_dependency 'rspec', '~> 3.0.0.beta'
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rspec-sidekiq'
+  gem.add_development_dependency 'activesupport', '>= 3'
+  gem.add_development_dependency 'simplecov'
 end

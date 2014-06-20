@@ -1,8 +1,9 @@
-require 'helper'
+require 'spec_helper'
+require 'sidekiq/api'
 require 'sidekiq/worker'
 require 'sidekiq-unique-jobs/middleware/server/unique_jobs'
 
-class TestUnlockOrdering < MiniTest::Unit::TestCase
+describe "Unlock order" do
   QUEUE = 'unlock_ordering'
 
   class BeforeYieldOrderingWorker
@@ -41,7 +42,7 @@ class TestUnlockOrdering < MiniTest::Unit::TestCase
           end
         end
 
-        assert_nil result
+        expect(result).to eq nil
       end
     end
 
@@ -56,7 +57,7 @@ class TestUnlockOrdering < MiniTest::Unit::TestCase
           end
         end
 
-        assert_equal '1', result
+        expect(result).to eq '1'
       end
     end
   end
